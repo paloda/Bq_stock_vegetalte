@@ -5566,18 +5566,10 @@ static int msm8x16_wcd_codec_probe(struct snd_soc_codec *codec)
 	} else {
 		dev_dbg(codec->dev, "%s :PMIC REV: %d\n", __func__,
 					msm8x16_wcd_priv->pmic_rev);
-		if (msm8x16_wcd_priv->pmic_rev == TOMBAK_1_0 &&
-			(snd_soc_read(codec, MSM8X16_WCD_A_ANALOG_NCP_FBCTRL)
-			 & 0x80)) {
-			msm8x16_wcd_priv->codec_version = CAJON;
-			dev_dbg(codec->dev, "%s : Cajon detected\n", __func__);
-		} else if (msm8x16_wcd_priv->pmic_rev == TOMBAK_2_0 &&
-			(snd_soc_read(codec, MSM8X16_WCD_A_ANALOG_NCP_FBCTRL)
-			 & 0x80)) {
-			msm8x16_wcd_priv->codec_version = CAJON_2_0;
-			dev_dbg(codec->dev, "%s : Cajon 2.0 detected\n",
-						__func__);
-		}
+
+
+		
+
 	}
 	/*
 	 * set to default boost option BOOST_SWITCH, user mixer path can change
